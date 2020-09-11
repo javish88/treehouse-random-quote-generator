@@ -1,5 +1,5 @@
 /*** 
- * `quotes` array 
+ * `quotes` array that stores quotes that will be seen when visiting the site
 ***/
     
 const quotes = [
@@ -33,10 +33,10 @@ const quotes = [
     },
   ];
   
-  printQuote(); 
+  printQuote(); /* function so that a random quote will show up when appearing on the site or refreshing it. */
   
   /***
-   * The `getRandomQuote` function 
+   * The `getRandomQuote` function will CREATE a RANDOM number and return it as an OBJECT from the Quotes array.
   ***/
   
   function getRandomQuote () {
@@ -50,7 +50,7 @@ const quotes = [
   }
   
   /***
-   * The `printQuote` function 
+   * The `printQuote` function grabs a quote at RANDOM and displays it for user
   ***/
   
   function printQuote() {
@@ -62,33 +62,33 @@ const quotes = [
     html += ` 
       <p class="quote">${randomQuote.quote}</p>
       <p class="source">${randomQuote.source}
-    `; 
+    `; // Shows quote source and quote
     
-    if (randomQuote.year) { 
+    if (randomQuote.year) { // Shows year and citation
       html += `
           <span class="citation">${randomQuote.citation}</span>
           <span class="year">${randomQuote.year}</span>
         </p>
       `;
-    } else if (randomQuote.tags) { 
+    } else if (randomQuote.tags) { // Shows tags and citation
       html += `
           <span class="citation">${randomQuote.citation}</span>
           <span class="tags"> Tags: ${randomQuote.tags}</span>
         </p>
       `;
-    } else if (randomQuote.citation) {
+    } else if (randomQuote.citation) { //Displays citation
       html += `
           <span class="citation">${randomQuote.citation}</span>
         </p>
       `;
     } 
   
-    random_bg_color();
+    random_bg_color(); // Random background color funtion for each time a quote is generated on display
   
     return document.getElementById('quote-box').innerHTML = html; 
   }
   
-  function random_bg_color() { 
+  function random_bg_color() {  // function that generates random Numbers for color used for the background color change
     var x = Math.floor(Math.random() * 256);
     var y = Math.floor(Math.random() * 256);
     var z = Math.floor(Math.random() * 256);
@@ -96,7 +96,7 @@ const quotes = [
     document.body.style.background = bgColor;
   } 
   
-  setInterval(printQuote, 20000); 
+  setInterval(printQuote, 20000); // Will generate a random quote and color change every 20 secs.
   
 /***
  * click event listener for the print quote button
